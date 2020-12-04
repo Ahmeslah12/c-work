@@ -1,0 +1,139 @@
+//my name :Ahmed slah abdalrhman 
+//class:scend 
+//Deparment:computer 
+#include <iostream>
+#include <cmath>
+#include <cstring>
+
+
+
+using namespace std;                                 // std هنا قمنا بتضيمن النطاق
+
+class shape                                         //    shape هنا قمنا بتعريف كلاس إسمه
+{
+    public:
+    	int rid1 ,rid2 , dr ,num;
+        double radius , circumference , area ;
+        double const pi=3.14 ;
+    	         
+};
+
+class ellipse : public shape      // A و يحتوي على دالة إسمها shape يرث من الكلاس  ellipse  هنا قمنا بتعريف كلاس إسمه
+{
+    public:
+        void A ()                  
+        { 
+             cout << "ellipse~~~~~~~~~~~~~~~~~~~~~~~~\n";
+             cout<<"cout diameter :";
+             cin >> dr;
+             cout<<"cout raduis";
+             cin >> radius ;
+             circumference= 2*pi*dr+radius/2 ;
+             area= pi * radius*radius ;
+             cout <<"circumference =   "<< circumference <<"\n" ;
+             cout << "area =    "<< area ;
+
+        }  
+};
+class circle : public ellipse           // A و يحتوي على دالة إسمها ellipse يرث من الكلاس  circle  هنا قمنا بتعريف كلاس إسمه
+
+{
+    public:
+        void B() 
+        {  
+            cout << "circle ~~~~~~~~~~~~~~~~~~~~~~\n";
+             cout<<"cout diameter :";
+             cin >> dr;
+             cout<<"cout raduis";
+             cin >> radius ;
+            circumference=dr*radius ;
+            area =dr*radius*radius ;
+            cout <<"circumference circle =  "<< circumference <<"\n";
+            cout <<"area circle =   "<< area ;
+        }
+};
+class polygon : public circle          // A و يحتوي على دالة إسمها circle يرث من الكلاس  polygon  هنا قمنا بتعريف كلاس إسمه
+
+{
+    public :
+        void C() 
+        {  
+            cout << "polygon ----------- \n";
+            cout<<"Enter numofrids, rid1, rid2";
+            cin >> num  >>rid1  >>rid2 ;
+            circumference  = rid2 * rid1 ;
+            area = num/2 ;
+            cout << "circumference polygon =   "<< circumference <<"\n" ;
+            cout << "area polygon =    "<< area ;
+        }
+};
+class triangle : public polygon     // A و يحتوي على دالة إسمها polygon يرث من الكلاس  triangle  هنا قمنا بتعريف كلاس إسمه
+
+{
+    public :
+        void D()  
+        { 
+             cout << "triangle ~~~~~~~~~~~~~~~~~ \n";
+             cout<<"Enter numofrids, rid1, rid2";
+             cin >> num  >>rid1  >>rid2 ;
+             circumference = rid1+rid2+num ;
+             area = rid1 * rid2 /2 ;
+             cout << "circumference triangle =    " << circumference <<"\n" ;
+             cout << "area triangle =    " << area ;
+        }
+};
+class rectangle : public triangle   // A و يحتوي على دالة إسمها triangle يرث من الكلاس  rectangle  هنا قمنا بتعريف كلاس إسمه
+
+{
+    public :
+        void F()
+        { 
+             cout << "rectangle ----------- \n";
+             cout<<"Enter rid1, rid2";
+             cin >> rid1 >>rid2 ;
+             circumference = 2*rid1+2*rid2 ;
+             area = rid1 *rid2 ;
+             cout << "circumference rectangle =    "<< circumference <<"\n";
+             cout << "area rectangle =    " << area ;
+        }
+};
+class square : public rectangle     // A و يحتوي على دالة إسمها rectangle يرث من الكلاس  square  هنا قمنا بتعريف كلاس إسمه
+
+{
+    public :
+        void G()
+        {  
+            cout << "square ----------- \n";
+            cout<<"Enter rid1";
+             cin >>rid1  ;
+            circumference = 4*rid1 ;
+            area = rid1 * rid1 ;
+            cout << "circumference square =    " << circumference<<"\n" ;
+            cout << "area square =     "<< area ;
+        }
+};
+int main()   //اﻟﺘﺎﺑﻊ   اﻟﺮﺋﯿﺴﻲ اﻟﺬي ﯾﺒﺪأ ﻣﻦ ﻋﻨﺪه اﻟﺘﻨﻔﯿﺬ 
+{
+    square sel;
+    char shell;
+    cout<<"Please select your shape: PRINT E OR C OR P OR T OR R OR S";
+    cin>>shell;
+    if(shell=='E'){
+    	sel.A();
+	}else if(shell=='C'){
+		sel.B();
+	}else if(shell=='P'){
+		sel.C();
+	}else if(shell=='T'){
+		sel.D();
+	}else if(shell=='R'){
+		sel.F();
+	}else if(shell=='S'){
+		sel.G();
+	}else {
+		cout<<"Error ............................";
+	}
+    
+    
+    return 0;
+}
